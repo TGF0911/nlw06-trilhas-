@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } fro
 import { v4 as uuid } from 'uuid'
 
 @Entity('users')
-export class User { 
+export class User {
   @PrimaryColumn()
   readonly id: string;
 
@@ -15,14 +15,17 @@ export class User {
   @Column()
   admin: boolean;
 
+  @Column()
+  password: string;
+
   @CreateDateColumn()
   created_at: Date;
 
   @UpdateDateColumn()
   updated_at: Date;
 
-  constructor(){
-    if(!this.id){
+  constructor() {
+    if (!this.id) {
       this.id = uuid();
     }
   }
